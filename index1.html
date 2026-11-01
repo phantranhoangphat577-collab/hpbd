@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, "DejaVu Sans", sans-serif;
+    background: linear-gradient(135deg, #ffe0eb, #f8c5dc, #e9d5ff);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #a83267;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+}
+
+.screen.active {
+    display: flex;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: clamp(32px, 7vw, 55px);
+    color: #e84383;
+    text-shadow: 2px 3px 8px white;
+}
+
+p {
+    font-size: 18px;
+    margin: 15px;
+    line-height: 1.7;
+}
+
+button {
+    background: #ec6097;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 30px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px #d98aaa;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #c93472;
+    transform: scale(1.08);
+}
+
+/* HỘP QUÀ */
+
+.gift {
+    font-size: 120px;
+    cursor: pointer;
+    animation: bounce 2.5s infinite;
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* HAPPY BIRTHDAY */
+
+.birthday-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    max-width: 100%;
+    margin: 10px auto;
+}
+
+.box {
+    position: relative;
+    width: 350px;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    overflow: visible;
+}
+
+/* ẢNH */
+
+.image {
+    width: 280px;
+    height: 280px;
+    border: 7px solid white;
+    border-radius: 360px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px #c77b9c;
+    z-index: 2;
+    opacity: 1;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hiệu ứng ảnh trôi từ dưới lên */
+
+#screen2.active .image {
+    animation: slideUpImage 20s cubic-bezier(0.25, 1, 0.25, 1) forwards;
+}
+
+@keyframes slideUpImage {
+    0% {
+        opacity: 1;
+        transform: translateY(100vh) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* TÊN */
+
+.name {
+    margin-top: 18px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #e84383;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 2;
+}
+
+.name i {
+    color: #ff4f81;
+    animation: heartBeat 2s infinite;
+}
+#screen2.active .name  {
+    animation: slideUpImage 20s cubic-bezier(0.25, 1, 0.25, 1) forwards;
+}
+
+@keyframes slideUpImage {
+    0% {
+        opacity: 1;
+        transform: translateY(100vh) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes heartBeat {
+    50% {
+        transform: scale(1.4);
+    }
+}
+
+/* BÓNG BAY */
+
+.balloon {
+    position: absolute;
+    top: calc(50% - 35px);
+    z-index: 3;
+    pointer-events: none;
+    opacity: 1;
+    width: 100px;
+}
+
+.balloon img {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+/* Bóng bên trái */
+
+.balloon-left {
+    left: calc(50% - 200px);
+}
+
+/* Bóng bên phải */
+
+.balloon-right {
+    right: calc(50% - 220px);
+}
+
+/* Hiệu ứng bóng bay */
+
+#screen2.active .balloon-left {
+    animation: balloonLeft 20s cubic-bezier(0.25, 1, 0.25, 1) forwards;
+}
+
+@keyframes balloonLeft {
+    0% {
+        transform: translateY(calc(-50% + 100vh)) rotate(-45deg) scale(0.9);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(-45deg) scale(1);
+    }
+}
+
+/* Bóng phải quay 45 độ */
+
+#screen2.active .balloon-right {
+    animation: balloonRight 20s cubic-bezier(0.25, 1, 0.25, 1) forwards;
+}
+
+@keyframes balloonRight {
+    0% {
+        transform: translateY(calc(-50% + 100vh)) rotate(30deg) scale(0.9);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(30deg) scale(1);
+    }
+}
+/* PHONG BÌ */
+
+.envelope {
+    font-size: 100px;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+}
+
+/!-- Bức thư /
+
+.letter {
+    background: #fffaf0;
+    max-width: 600px;
+    width: 95%;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px #ba7895;
+    text-align: left;
+    line-height: 1.9;
+    border: 2px solid #f2c7d7;
+    margin-top: 25px;
+    font-family: Arial, sans-serif;
+}
+
+.letter h2 {
+    text-align: center;
+    color: #e84383;
+    margin-bottom: 20px;
+}
+
+#typedText {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #75425b;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: normal;
+    font-family: Arial, sans-serif;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 25px;
+    color: #e84383;
+    font-style: italic;
+}
+
+/* TRÁI TIM BAY */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    animation: fly 5s linear forwards;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes fly {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* xem bằng đt */
+
+@media (max-width: 500px) {
+    .birthday-content {
+        width: 100%;
+    }
+
+    .box {
+        width: 300px;
+    }
+
+    .image {
+        width: 190px;
+        height: 240px;
+    }
+
+    .balloon {
+        width: 75px;
+    }
+
+    .balloon img {
+        width: 200px;
+    }
+
+    .balloon-left {
+        left: calc(50% - 170px);
+    }
+
+    .balloon-right {
+        right: calc(50% - 170px);
+    }
+
+    .letter {
+        padding: 22px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 1: HỘP QUÀ -->
+
+<section class="screen active" id="screen1">
+
+    <h1>🎀 Surprise! 🎀</h1>
+
+    <p>............</p>
+
+    <div class="gift" onclick="openGift()">🎁</div>
+
+    <p>...........</p>
+
+    <button onclick="openGift()">....</button>
+
+</section>
+
+
+<!-- 2: HAPPY BIRTHDAY -->
+
+<section class="screen" id="screen2">
+
+    <h1>🎉 HAPPY BIRTHDAY 🎉</h1>
+
+    <div class="birthday-content">
+
+        <!-- BÓNG BAY BÊN TRÁI -->
+        <div class="balloon balloon-left">
+            <img src="./ballon-removebg-preview.png" alt="Bóng bay bên trái">
+        </div>
+
+        <div class="box">
+
+            <div class="image">
+                <img src="./ballon-removebg-preview.png" alt="hình ảnh  ">
+            </div>
+
+            <div class="name">
+                <i class="fa-solid fa-heart"></i>
+                <span>........</span>
+                <i class="fa-solid fa-heart"></i>
+            </div>  
+
+        </div>
+
+        <!-- BÓNG BAY BÊN PHẢI -->
+        <div class="balloon balloon-right">
+            <img src="./ballon-removebg-preview.png" alt="Bóng bay bên phải">
+        </div>
+
+    </div>
+
+    <p>................</p>
+
+    <button onclick="goToLetter()">
+        Tiếp tục 💌
+    </button>
+
+</section>
+
+
+<!-- 3: PHONG BÌ -->
+
+<section class="screen" id="screen3">
+
+    <h1> ..............</h1>
+
+    <p>..........</p>
+
+    <div class="envelope" onclick="openLetter()">💌</div>
+
+    <button onclick="openLetter()">......</button>
+
+</section>
+
+
+<!-- 4: BỨC THƯ -->
+
+<section class="screen" id="screen4">
+
+    <h1>.......</h1>
+
+    <div class="letter">
+
+        <h2>.........</h2>
+
+        <div id="typedText"></div>
+
+        <div class="signature" id="signature"></div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+// CHUYỂN MÀN HÌNH
+
+function changeScreen(oldScreen, newScreen) {
+
+    document.getElementById(oldScreen).classList.remove("active");
+
+    document.getElementById(newScreen).classList.add("active");
+
+}
+
+
+// MỞ HỘP QUÀ
+
+function openGift() {
+
+    changeScreen("screen1", "screen2");
+
+    // Reset animation ảnh
+    const imgContainer = document.querySelector(".image");
+    imgContainer.style.animation = "none";
+    imgContainer.offsetHeight;
+    imgContainer.style.animation = null;
+
+    // Reset animation hai quả bóng bay
+    const balloons = document.querySelectorAll(".balloon");
+
+    balloons.forEach(b => {
+        b.style.animation = "none";
+        b.offsetHeight;
+        b.style.animation = null;
+    });
+
+    createHearts();
+
+}
+
+
+// CHUYỂN ĐẾN THƯ
+
+function goToLetter() {
+
+    changeScreen("screen2", "screen3");
+
+}
+
+
+// MỞ THƯ VÀ HIỆU ỨNG CHẠY CHỮ
+
+function openLetter() {
+
+    changeScreen("screen3", "screen4");
+
+    const message =
+`.......`;
+
+    const characters = Array.from(message);
+
+    let i = 0;
+
+    const textElement = document.getElementById("typedText");
+
+    const signature = document.getElementById("signature");
+
+    textElement.textContent = "";
+
+    signature.textContent = "";
+
+    function typeWriter() {
+
+        if (i < characters.length) {
+
+            textElement.textContent += characters[i];
+
+            i++;
+
+            setTimeout(typeWriter, 55);
+
+        } else {
+
+            signature.textContent = "With friends";
+
+        }
+
+    }
+
+    typeWriter();
+
+    createHearts();
+
+}
+
+
+// HIỆU ỨNG TRÁI TIM
+
+function createHearts() {
+
+    for (let i = 0; i < 20; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML = "💗";
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        heart.style.animationDelay = Math.random() * 3 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 6000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
